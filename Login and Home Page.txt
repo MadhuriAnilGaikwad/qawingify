@@ -1,0 +1,63 @@
+LOGIN PAGE AUTOMATION SCRIPTS
+
+
+package selenium;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Qawingify {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("wedriver.chrome.driver","C:\\Lib\\chromedriver_win32\\chromedriver.exe");
+		WebDriver abc=new ChromeDriver();
+		
+		System.out.println("show title"+ abc.getTitle());
+		System.out.println("show title"+ abc.getCurrentUrl());
+		
+	abc.get("https://sakshingp.github.io/assignment/login.html");
+	
+	Thread.sleep(5000);
+		
+	abc.findElement(By.xpath("//div[starts-with@id=random_id_8,\'Both Username and Password must be present\']")).getAttribute("");
+		
+	abc.findElement(By.xpath("//input[@placeholder='Enter the username']")).sendKeys("Madhuri");
+		
+	abc.findElement(By.xpath("//input[@placeholder='Enter the password']")).sendKeys("12345");
+		
+	abc.findElement(By.xpath("//div[starts-with@id=\'btn btn-primary\']")).click();
+
+
+
+
+
+
+	HOME PAGE AUTOMATION SCRIPTS	
+	===========================================================================================================================================	
+				
+	abc.findElement(By.cssSelector("//div[@style=\'text-align:center\']")).click();
+	
+	abc.findElement(By.cssSelector("//div[starts-with@id=\'amount\']")).click();
+	
+	WebElement table=abc.findElement(By.xpath("//div([@class=\'nowrap\']/table/tbody)"));
+	List<WebElement> lst=table.findElements(By.tagName("tr"));
+	System.out.println(lst);
+
+	ArrayList<String> ls=new ArrayList<String>();
+	for(int i=0;i<=6;i++)
+	{
+	    ls=lst.addAll(get(i).getText());
+	}
+	}
+
+	private static WebElement get(int i) {
+		return null;
+	}
+
+}
